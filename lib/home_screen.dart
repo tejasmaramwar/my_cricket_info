@@ -5,6 +5,7 @@ import 'toss_screen.dart';
 import 'start_a_match.dart';
 import 'welcome_screen.dart';
 import 'login_screen.dart';
+import 'brain.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -13,25 +14,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  double overs = 0.0;
-  int integer = 0;
-  double decimal = 0;
-  void showOvers() {
-    int count = 0;
-    while (overs <= 1.9) {
-      count++;
-      if (count % 6 != 0) {
-        decimal = decimal + 0.1;
-        overs = integer + decimal;
-        print(overs);
-      } else {
-        decimal = 0;
-        integer = integer + 1;
-        overs = integer + decimal;
-        print(overs);
-      }
-    }
-  }
 
   @override
   Widget build(BuildContext context) {

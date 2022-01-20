@@ -48,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: GestureDetector(
               child: Container(
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
                       'Team 1 vs Team 2',

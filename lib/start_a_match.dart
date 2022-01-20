@@ -57,13 +57,13 @@ class _StartAMatchState extends State<StartAMatch> {
                       ),
                     ],
                   ),
-                  TextField(
+                  TextField(keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       border: UnderlineInputBorder(),
                       labelText: 'No. of Overs',
                     ),
                   ),
-                  TextField(
+                  TextField(keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       border: UnderlineInputBorder(),
                       labelText: 'Overs per bowler',
@@ -81,7 +81,7 @@ class _StartAMatchState extends State<StartAMatch> {
                       labelText: 'Ground',
                     ),
                   ),
-                  TextField(
+                  TextField(keyboardType: TextInputType.datetime,
                     decoration: InputDecoration(
                       border: UnderlineInputBorder(),
                       labelText: 'Date and Time',

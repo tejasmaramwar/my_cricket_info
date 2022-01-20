@@ -1,14 +1,23 @@
 import 'package:flutter/cupertino.dart';
 
 class ScoreProvider with ChangeNotifier{
-  int score=0 ;
-  int? wickets= 0;
+  int score=0;
+  int wickets= 0;
   double? overs;
 
 
-  void addRuns(){
-    score=score+1;
-    print(score);
+  void addRuns(int run){
+    score=score+run;
+    // print(score);
+    notifyListeners();
+  }
+
+  void addWicket()
+  {
+    if(wickets < 10)
+      {
+        wickets = wickets + 1;
+      }
     notifyListeners();
   }
 

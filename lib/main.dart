@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
 import 'package:provider/provider.dart';
-import 'overs_and_score_counter.dart';
+import 'provider_class.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [ChangeNotifierProvider(create: (_) => ScoreProvider())],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -12,13 +15,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (BuildContext context) => Counter(),
-      child: MaterialApp(
+    return MaterialApp(
         theme: ThemeData.light(),
         debugShowCheckedModeBanner: false,
-        home: HomeScreen(),
-      ),
-    );
+        home: HomeScreen());
   }
 }

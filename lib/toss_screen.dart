@@ -32,6 +32,7 @@ class TossScreen extends StatelessWidget {
                   Expanded(
                     flex: 2,
                     child: MaterialButton(
+                      highlightColor: Color(0xffFF8243),
                       onPressed: () {},
                       height: 200.0,
                       child: Text('Team A'),

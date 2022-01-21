@@ -6,7 +6,8 @@ import 'start_a_match.dart';
 import 'welcome_screen.dart';
 import 'login_screen.dart';
 import 'brain.dart';
-
+import 'provider_class.dart';
+import 'package:provider/provider.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
   @override
@@ -14,8 +15,10 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   @override
   Widget build(BuildContext context) {
+    final scoreprovider = context.watch<ScoreProvider>();
     return Scaffold(
       backgroundColor: Colors.white,
       floatingActionButton: FloatingActionButton(
@@ -63,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Column(
-                          children: const [
+                          children: [
                             Text(
                               'Team 1',
                               style: TextStyle(
@@ -74,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               height: 10.0,
                             ),
                             Text(
-                              '95/6 (10/10 Ov)',
+                              '${scoreprovider.score}/${scoreprovider.wickets} (10/10 Ov)',
                               style: TextStyle(
                                 fontSize: 20.0,
                               ),

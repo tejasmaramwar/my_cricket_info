@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:provider/provider.dart';
 
 class ScoreProvider with ChangeNotifier{
   int score=0;

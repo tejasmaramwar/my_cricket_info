@@ -42,10 +42,11 @@ class _MatchScreenState extends State<MatchScreen> {
                                 Text('Team 1',
                                     style: TextStyle(fontSize: 20.0)),
                                 Text(
-                                    '${scoreprovider.score}/${scoreprovider.wickets} (10/10)',
+                                    '${scoreprovider.score}/${scoreprovider.wickets} (${scoreprovider.overs}.${scoreprovider.balls}/10)',//10 represents total overs
                                     style: TextStyle(fontSize: 20.0)),
                               ],
                             ),
+
                             SizedBox(
                               height: 15.0,
                             ),
@@ -108,7 +109,7 @@ class _MatchScreenState extends State<MatchScreen> {
                                   ],
                                 ),
                                 Column(
-                                  children: const [
+                                  children:  [
                                     Text(
                                       'Overs',
                                       style: TextStyle(
@@ -117,7 +118,7 @@ class _MatchScreenState extends State<MatchScreen> {
                                     ),
                                     SizedBox(height: 10.0),
                                     Text(
-                                      '6.2 / 10',
+                                      '${scoreprovider.overs}.${scoreprovider.balls}/10',
                                       style: TextStyle(
                                         fontSize: 24.0,
                                       ),
@@ -137,27 +138,28 @@ class _MatchScreenState extends State<MatchScreen> {
                                   color: Colors.black,
                                   onpressed: () {
                                     scoreprovider.addRuns(0);
+                                    scoreprovider.addBalls();
                                   },
                                 ),
                                 ScoreButtons(
                                   score: '1',
                                   color: Colors.black,
                                   onpressed: () {
-                                    scoreprovider.addRuns(1);
+                                    scoreprovider.addRuns(1);scoreprovider.addBalls();
                                   },
                                 ),
                                 ScoreButtons(
                                   score: '2',
                                   color: Colors.black,
                                   onpressed: () {
-                                    scoreprovider.addRuns(2);
+                                    scoreprovider.addRuns(2);scoreprovider.addBalls();
                                   },
                                 ),
                                 ScoreButtons(
                                   score: '3',
                                   color: Colors.black,
                                   onpressed: () {
-                                    scoreprovider.addRuns(3);
+                                    scoreprovider.addRuns(3);scoreprovider.addBalls();
                                   },
                                 ),
                               ],
@@ -168,28 +170,28 @@ class _MatchScreenState extends State<MatchScreen> {
                                   score: 'FOUR!',
                                   color: Colors.green,
                                   onpressed: () {
-                                    scoreprovider.addRuns(4);
+                                    scoreprovider.addRuns(4);scoreprovider.addBalls();
                                   },
                                 ),
                                 ScoreButtons(
                                   score: '5',
                                   color: Colors.black,
                                   onpressed: () {
-                                    scoreprovider.addRuns(5);
+                                    scoreprovider.addRuns(5);scoreprovider.addBalls();
                                   },
                                 ),
                                 ScoreButtons(
                                   score: 'SIX!',
                                   color: Colors.green,
                                   onpressed: () {
-                                    scoreprovider.addRuns(6);
+                                    scoreprovider.addRuns(6);scoreprovider.addBalls();
                                   },
                                 ),
                                 ScoreButtons(
                                   score: '7',
                                   color: Colors.black,
                                   onpressed: () {
-                                    scoreprovider.addRuns(7);
+                                    scoreprovider.addRuns(7);scoreprovider.addBalls();
                                   },
                                 ),
                               ],
@@ -200,7 +202,7 @@ class _MatchScreenState extends State<MatchScreen> {
                                   score: 'OUT',
                                   color: Colors.red,
                                   onpressed: () {
-                                    scoreprovider.addWicket();
+                                    scoreprovider.addWicket();scoreprovider.addBalls();
                                   },
                                 ),
                                 ScoreButtons(
@@ -227,6 +229,7 @@ class _MatchScreenState extends State<MatchScreen> {
                                   color: Colors.green,
                                   onpressed: () {
                                     scoreprovider.addRuns(-1);
+                                    //What about how to undo Wickets?????????
                                   },
                                 ),
                               ],

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:my_cricket_info/match_screen.dart';
 import 'package:my_cricket_info/virtual_toss_screen.dart';
 
 class TossScreen extends StatelessWidget {
@@ -129,7 +130,12 @@ class TossScreen extends StatelessWidget {
             child: Material(
               color: const Color(0xff14b492),
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => MatchScreen()));
+                },
                 child: const SizedBox(
                   height: kToolbarHeight,
                   width: double.infinity,

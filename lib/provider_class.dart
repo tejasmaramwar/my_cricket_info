@@ -9,6 +9,10 @@ class ScoreProvider with ChangeNotifier {
   double overs = 0;
   int count = 1;
   late int innings;
+  int totalovers=0;
+  String city="";
+  String ground="";
+  String datetime="";
 
   void addRuns(int run) {
     score = score + run;
@@ -35,5 +39,17 @@ class ScoreProvider with ChangeNotifier {
     }
 
     notifyListeners();
+  }
+  void totalover(int over){
+    totalovers=over;
+  }
+  void City(String City){
+    city = City;
+  }
+  void Ground(String Ground){
+    ground = Ground;
+  }
+  void Datetime(String Datetime){
+    datetime = Datetime;
   }
 }

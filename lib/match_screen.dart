@@ -14,232 +14,233 @@ class _MatchScreenState extends State<MatchScreen> {
   void initState() {
     super.initState();
   }
+
   @override
-
-
   Widget build(BuildContext context) {
     final scoreprovider = context.watch<ScoreProvider>();
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xffFF8243),
-        title: Text("My Cricket Info"),
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.settings))],
-      ),
-      body: SafeArea(
-          child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(height: 15.0),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text('Team 1',
-                                    style: TextStyle(fontSize: 20.0)),
-                                Text(
-                                    '${scoreprovider.score}/${scoreprovider.wickets} (${scoreprovider.overs}.${scoreprovider.balls}/10)',//10 represents total overs
-                                    style: TextStyle(fontSize: 20.0)),
-                              ],
-                            ),
+        appBar: AppBar(
+          backgroundColor: Color(0xffFF8243),
+          title: Text("My Cricket Info"),
+          actions: [IconButton(onPressed: () {}, icon: Icon(Icons.settings))],
+        ),
+        body: SafeArea(
+            child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 15.0),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('Team 1', style: TextStyle(fontSize: 20.0)),
+                      Text(
+                          '${scoreprovider.score}/${scoreprovider.wickets} (${scoreprovider.overs}/10)',
+                          style: TextStyle(fontSize: 20.0)),
+                    ],
+                  ),
 
-                            SizedBox(
-                              height: 15.0,
+                  SizedBox(
+                    height: 15.0,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('Team 2', style: TextStyle(fontSize: 20.0)),
+                      Text('0/0 (0.0/10)', style: TextStyle(fontSize: 20.0)),
+                    ],
+                  ),
+                  Divider(),
+                  SizedBox(height: 15.0),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('Target - ', style: TextStyle(fontSize: 20.0)),
+                      Text('100 (10)', style: TextStyle(fontSize: 20.0)),
+                    ],
+                  ),
+                  SizedBox(height: 20.0),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //   children: [
+                  //     Text('Current Score - ',
+                  //         style: TextStyle(fontSize: 20.0)),
+                  //     Text('64/5 (6.2/10)',
+                  //         style: TextStyle(fontSize: 20.0)),
+                  //   ],
+                  // ),
+                  SizedBox(height: 20.0),
+                  Text('Team 1 won the toss and elected to bowl',
+                      style: TextStyle(fontSize: 15.0)),
+                  SizedBox(height: 15.0),
+                  Text('Need 32 runs from 22 balls',
+                      style: TextStyle(fontSize: 15.0)),
+                  Divider(),
+                  SizedBox(height: 17.0),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Column(
+                        children: [
+                          Text(
+                            'Current Score',
+                            style: TextStyle(
+                              fontSize: 24.0,
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text('Team 2',
-                                    style: TextStyle(fontSize: 20.0)),
-                                Text('64/5 (6.2/10)',
-                                    style: TextStyle(fontSize: 20.0)),
-                              ],
+                          ),
+                          SizedBox(height: 10.0),
+                          Text(
+                            '${scoreprovider.score} / ${scoreprovider.wickets}',
+                            style: TextStyle(
+                              fontSize: 24.0,
                             ),
-                            Divider(),
-                            SizedBox(height: 15.0),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text('Target - ',
-                                    style: TextStyle(fontSize: 20.0)),
-                                Text('96 (10)',
-                                    style: TextStyle(fontSize: 20.0)),
-                              ],
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            'Overs',
+                            style: TextStyle(
+                              fontSize: 24.0,
                             ),
-                            SizedBox(height: 20.0),
-                            // Row(
-                            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            //   children: [
-                            //     Text('Current Score - ',
-                            //         style: TextStyle(fontSize: 20.0)),
-                            //     Text('64/5 (6.2/10)',
-                            //         style: TextStyle(fontSize: 20.0)),
-                            //   ],
-                            // ),
-                            SizedBox(height: 20.0),
-                            Text('Team 1 won the toss and elected to bowl',
-                                style: TextStyle(fontSize: 15.0)),
-                            SizedBox(height: 15.0),
-                            Text('Need 32 runs from 22 balls',
-                                style: TextStyle(fontSize: 15.0)),
-                            Divider(),
-                            SizedBox(height: 17.0),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Column(
-                                  children: [
-                                    Text(
-                                      'Current Score',
-                                      style: TextStyle(
-                                        fontSize: 24.0,
-                                      ),
-                                    ),
-                                    SizedBox(height: 10.0),
-                                    Text(
-                                      '${scoreprovider.score} / ${scoreprovider.wickets}',
-                                      style: TextStyle(
-                                        fontSize: 24.0,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Column(
-                                  children:  [
-                                    Text(
-                                      'Overs',
-                                      style: TextStyle(
-                                        fontSize: 24.0,
-                                      ),
-                                    ),
-                                    SizedBox(height: 10.0),
-                                    Text(
-                                      '${scoreprovider.overs}.${scoreprovider.balls}/10',
-                                      style: TextStyle(
-                                        fontSize: 24.0,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                          ),
+                          SizedBox(height: 10.0),
+                          Text(
+                            '(${scoreprovider.overs}/10)',
+                            style: TextStyle(
+                              fontSize: 24.0,
                             ),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Row(
-                              children: [
-                                ScoreButtons(
-                                  score: '0',
-                                  color: Colors.black,
-                                  onpressed: () {
-                                    scoreprovider.addRuns(0);
-                                    scoreprovider.addBalls();
-                                  },
-                                ),
-                                ScoreButtons(
-                                  score: '1',
-                                  color: Colors.black,
-                                  onpressed: () {
-                                    scoreprovider.addRuns(1);scoreprovider.addBalls();
-                                  },
-                                ),
-                                ScoreButtons(
-                                  score: '2',
-                                  color: Colors.black,
-                                  onpressed: () {
-                                    scoreprovider.addRuns(2);scoreprovider.addBalls();
-                                  },
-                                ),
-                                ScoreButtons(
-                                  score: '3',
-                                  color: Colors.black,
-                                  onpressed: () {
-                                    scoreprovider.addRuns(3);scoreprovider.addBalls();
-                                  },
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                ScoreButtons(
-                                  score: 'FOUR!',
-                                  color: Colors.green,
-                                  onpressed: () {
-                                    scoreprovider.addRuns(4);scoreprovider.addBalls();
-                                  },
-                                ),
-                                ScoreButtons(
-                                  score: '5',
-                                  color: Colors.black,
-                                  onpressed: () {
-                                    scoreprovider.addRuns(5);scoreprovider.addBalls();
-                                  },
-                                ),
-                                ScoreButtons(
-                                  score: 'SIX!',
-                                  color: Colors.green,
-                                  onpressed: () {
-                                    scoreprovider.addRuns(6);scoreprovider.addBalls();
-                                  },
-                                ),
-                                ScoreButtons(
-                                  score: '7',
-                                  color: Colors.black,
-                                  onpressed: () {
-                                    scoreprovider.addRuns(7);scoreprovider.addBalls();
-                                  },
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                ScoreButtons(
-                                  score: 'OUT',
-                                  color: Colors.red,
-                                  onpressed: () {
-                                    scoreprovider.addWicket();scoreprovider.addBalls();
-                                  },
-                                ),
-                                ScoreButtons(
-                                  score: 'WD',
-                                  color: Colors.black,
-                                  onpressed: () {
-                                    scoreprovider.addRuns(1);
-                                  },
-                                ),
-                                ScoreButtons(
-                                  score: 'NB',
-                                  color: Colors.black,
-                                  onpressed: () {
-                                    scoreprovider.addRuns(1);
-                                  },
-                                ),
-                                ScoreButtons(
-                                  score: 'LB',
-                                  color: Colors.black,
-                                  onpressed: () {},
-                                ),
-                                ScoreButtons(
-                                  score: 'UNDO',
-                                  color: Colors.green,
-                                  onpressed: () {
-                                    scoreprovider.addRuns(-1);
-                                    //What about how to undo Wickets?????????
-                                  },
-                                ),
-                              ],
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                  ))
-    );
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  Row(
+                    children: [
+                      ScoreButtons(
+                        score: '0',
+                        color: Colors.black,
+                        onpressed: () {
+                          scoreprovider.addRuns(0);
+                          scoreprovider.addBalls();
+                        },
+                      ),
+                      ScoreButtons(
+                        score: '1',
+                        color: Colors.black,
+                        onpressed: () {
+                          scoreprovider.addRuns(1);
+                          scoreprovider.addBalls();
+                        },
+                      ),
+                      ScoreButtons(
+                        score: '2',
+                        color: Colors.black,
+                        onpressed: () {
+                          scoreprovider.addRuns(2);
+                          scoreprovider.addBalls();
+                        },
+                      ),
+                      ScoreButtons(
+                        score: '3',
+                        color: Colors.black,
+                        onpressed: () {
+                          scoreprovider.addRuns(3);
+                          scoreprovider.addBalls();
+                        },
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      ScoreButtons(
+                        score: 'FOUR!',
+                        color: Colors.green,
+                        onpressed: () {
+                          scoreprovider.addRuns(4);
+                          scoreprovider.addBalls();
+                        },
+                      ),
+                      ScoreButtons(
+                        score: '5',
+                        color: Colors.black,
+                        onpressed: () {
+                          scoreprovider.addRuns(5);
+                          scoreprovider.addBalls();
+                        },
+                      ),
+                      ScoreButtons(
+                        score: 'SIX!',
+                        color: Colors.green,
+                        onpressed: () {
+                          scoreprovider.addRuns(6);
+                          scoreprovider.addBalls();
+                        },
+                      ),
+                      ScoreButtons(
+                        score: '7',
+                        color: Colors.black,
+                        onpressed: () {
+                          scoreprovider.addRuns(7);
+                          scoreprovider.addBalls();
+                        },
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      ScoreButtons(
+                        score: 'OUT',
+                        color: Colors.red,
+                        onpressed: () {
+                          scoreprovider.addWicket();
+                          scoreprovider.addBalls();
+                        },
+                      ),
+                      ScoreButtons(
+                        score: 'WD',
+                        color: Colors.black,
+                        onpressed: () {
+                          scoreprovider.addRuns(1);
+                        },
+                      ),
+                      ScoreButtons(
+                        score: 'NB',
+                        color: Colors.black,
+                        onpressed: () {
+                          scoreprovider.addRuns(1);
+                        },
+                      ),
+                      ScoreButtons(
+                        score: 'LB',
+                        color: Colors.black,
+                        onpressed: () {},
+                      ),
+                      ScoreButtons(
+                        score: 'UNDO',
+                        color: Colors.green,
+                        onpressed: () {
+                          scoreprovider.addRuns(-1);
+                          //What about how to undo Wickets?????????
+                        },
+                      ),
+                    ],
+                  ),
+                ],
+              )
+            ],
+          ),
+        )));
   }
 }
 

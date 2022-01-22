@@ -81,7 +81,39 @@ class _MatchScreenState extends State<MatchScreen> {
                   Text('Need 32 runs from 22 balls',
                       style: TextStyle(fontSize: 15.0)),
                   Divider(),
-                  SizedBox(height: 17.0),
+                  Row(
+                    mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                    children: [
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.place_outlined,
+                        ),
+                        SizedBox(width: 5),
+                        Text(
+                          '${scoreprovider.ground},${scoreprovider.city}' ,
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.calendar_today_outlined,
+                        ),
+                        SizedBox(width: 5),
+                        Text(
+                           scoreprovider.datetime,
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+
+                  ],),
+                  Divider(),
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [

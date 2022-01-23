@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'home_screen.dart';
 import 'package:provider/provider.dart';
 import 'provider_class.dart';
+import 'teamB_providerclass.dart';
 
 void main() {
   runApp(MultiProvider(
-    providers: [ChangeNotifierProvider(create: (_) => ScoreProvider())],
+    providers: [
+      ChangeNotifierProvider(create: (_) => ScoreProvider()),
+      ChangeNotifierProvider(create: (_) => (ScoreProviderB()))
+    ],
     child: MyApp(),
   ));
 }

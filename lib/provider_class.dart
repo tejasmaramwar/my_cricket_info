@@ -13,7 +13,7 @@ class ScoreProvider with ChangeNotifier {
   String city="";
   String ground="";
   String datetime="";
-  bool isTeamAselected = false;
+  bool isTeamAselected = true;
   bool playSelection = true;
 
 
@@ -22,14 +22,14 @@ class ScoreProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void addWicket() {
+  void addWicket(int wickets) {
     if (wickets < 10) {
       wickets = wickets + 1;
     }
     notifyListeners();
   }
 
-  void addBalls() {
+  void addBalls(int balls) {
     if (count % 6 != 0) {
       count++;
       decimal = decimal + 0.1;

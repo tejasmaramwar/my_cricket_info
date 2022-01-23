@@ -13,6 +13,9 @@ class ScoreProvider with ChangeNotifier {
   String city="";
   String ground="";
   String datetime="";
+  bool isTeamAselected = false;
+  bool playSelection = true;
+
 
   void addRuns(int run) {
     score = score + run;
@@ -51,5 +54,13 @@ class ScoreProvider with ChangeNotifier {
   }
   void Datetime(String Datetime){
     datetime = Datetime;
+  }
+  void SelectedTeam(){
+    isTeamAselected = !isTeamAselected;
+    notifyListeners();
+  }
+  void playSelecting(){
+    playSelection = !playSelection;
+    notifyListeners();
   }
 }

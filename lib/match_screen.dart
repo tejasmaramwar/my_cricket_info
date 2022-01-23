@@ -38,9 +38,9 @@ class _MatchScreenState extends State<MatchScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Team 1', style: TextStyle(fontSize: 20.0)),
+                      Text('Team A', style: TextStyle(fontSize: 20.0)),
                       Text(
-                          '${scoreprovider.score}/${scoreprovider.wickets} (${scoreprovider.overs}/10)',
+                          '${scoreprovider.score}/${scoreprovider.wickets} (${scoreprovider.overs}/${scoreprovider.totalovers})',
                           style: TextStyle(fontSize: 20.0)),
                     ],
                   ),
@@ -51,8 +51,8 @@ class _MatchScreenState extends State<MatchScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Team 2', style: TextStyle(fontSize: 20.0)),
-                      Text('0/0 (0.0/10)', style: TextStyle(fontSize: 20.0)),
+                      Text('Team B', style: TextStyle(fontSize: 20.0)),
+                      Text('0/0 (0.0/${scoreprovider.totalovers})', style: TextStyle(fontSize: 20.0)),
                     ],
                   ),
                   Divider(),
@@ -75,8 +75,13 @@ class _MatchScreenState extends State<MatchScreen> {
                   //   ],
                   // ),
                   SizedBox(height: 20.0),
-                  Text('Team 1 won the toss and elected to bowl',
-                      style: TextStyle(fontSize: 15.0)),
+                  Row(children: [
+                    Text(scoreprovider.isTeamAselected ?"Team A won the toss &":"Team B won the toss &",
+                        style: TextStyle(fontSize: 15.0)),
+                    Text(scoreprovider.playSelection ?" Elected to bat ":" Elected to ball",
+                        style: TextStyle(fontSize: 15.0)),
+                  ],
+                  ),
                   SizedBox(height: 15.0),
                   Text('Need 32 runs from 22 balls',
                       style: TextStyle(fontSize: 15.0)),

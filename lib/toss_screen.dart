@@ -3,12 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:my_cricket_info/match_screen.dart';
 import 'package:my_cricket_info/virtual_toss_screen.dart';
+import 'provider_class.dart';
+import 'package:provider/provider.dart';
 
 class TossScreen extends StatelessWidget {
   const TossScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final scoreprovider = context.watch<ScoreProvider>();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xffFF8243),
@@ -33,8 +36,8 @@ class TossScreen extends StatelessWidget {
                   Expanded(
                     flex: 2,
                     child: MaterialButton(
-                      highlightColor: Color(0xffFF8243),
-                      onPressed: () {},
+                      color: scoreprovider.isTeamAselected ? Colors.orange:Colors.white,
+                      onPressed: () {scoreprovider.SelectedTeam();},
                       height: 200.0,
                       child: Text('Team A'),
                     ),
@@ -42,7 +45,8 @@ class TossScreen extends StatelessWidget {
                   Expanded(
                     flex: 2,
                     child: MaterialButton(
-                      onPressed: () {},
+                      color: scoreprovider.isTeamAselected ? Colors.white:Colors.orange,
+                      onPressed: () {scoreprovider.SelectedTeam();},
                       height: 200.0,
                       child: Text('Team B'),
                     ),
@@ -65,7 +69,8 @@ class TossScreen extends StatelessWidget {
                   Expanded(
                     flex: 2,
                     child: MaterialButton(
-                      onPressed: () {},
+                      color: scoreprovider.playSelection ? Colors.orange:Colors.white,
+                      onPressed: () {scoreprovider.playSelecting();},
                       height: 200.0,
                       child: CircleAvatar(
                         radius: 80.0,
@@ -80,7 +85,8 @@ class TossScreen extends StatelessWidget {
                   Expanded(
                     flex: 2,
                     child: MaterialButton(
-                      onPressed: () {},
+                      color: scoreprovider.playSelection ? Colors.white:Colors.orange,
+                      onPressed: () {scoreprovider.playSelecting();},
                       height: 200.0,
                       child: CircleAvatar(
                         radius: 80.0,

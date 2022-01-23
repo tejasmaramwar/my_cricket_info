@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:my_cricket_info/match_screen.dart';
 import 'package:my_cricket_info/virtual_toss_screen.dart';
-import 'provider_class.dart';
+import 'providers/teamA_provider.dart';
 import 'package:provider/provider.dart';
-import 'teamB_providerclass.dart';
+import 'providers/teamB_provider.dart';
 
 class TossScreen extends StatelessWidget {
   const TossScreen({Key? key}) : super(key: key);

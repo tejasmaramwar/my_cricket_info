@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
 import 'package:provider/provider.dart';
-import 'provider_class.dart';
-import 'teamB_providerclass.dart';
+import 'providers/teamA_provider.dart';
+import 'providers/teamB_provider.dart';
 
 void main() {
   runApp(MultiProvider(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_cricket_info/toss_screen.dart';
-import 'provider_class.dart';
+import 'providers/teamA_provider.dart';
 import 'package:provider/provider.dart';
-import 'teamB_providerclass.dart';
+import 'providers/teamB_provider.dart';
 
 class StartAMatch extends StatefulWidget {
   const StartAMatch({Key? key}) : super(key: key);

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_cricket_info/provider_class.dart';
+import 'package:my_cricket_info/providers/teamA_provider.dart';
 import 'package:provider/provider.dart';
-import 'teamB_providerclass.dart';
+import 'providers/teamB_provider.dart';
 
 class MatchScreen extends StatefulWidget {
   const MatchScreen({Key? key}) : super(key: key);

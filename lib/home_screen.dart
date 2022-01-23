@@ -6,7 +6,7 @@ import 'start_a_match.dart';
 import 'welcome_screen.dart';
 import 'login_screen.dart';
 import 'brain.dart';
-import 'provider_class.dart';
+import 'providers/teamA_provider.dart';
 import 'package:provider/provider.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

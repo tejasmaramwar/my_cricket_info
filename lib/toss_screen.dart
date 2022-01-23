@@ -5,6 +5,7 @@ import 'package:my_cricket_info/match_screen.dart';
 import 'package:my_cricket_info/virtual_toss_screen.dart';
 import 'provider_class.dart';
 import 'package:provider/provider.dart';
+import 'teamB_providerclass.dart';
 
 class TossScreen extends StatelessWidget {
   const TossScreen({Key? key}) : super(key: key);
@@ -12,6 +13,7 @@ class TossScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scoreprovider = context.watch<ScoreProvider>();
+    final scoreproviderb = context.watch<ScoreProviderB>();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xffFF8243),

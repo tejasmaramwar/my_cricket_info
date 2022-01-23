@@ -8,7 +8,7 @@ class ScoreProvider with ChangeNotifier {
   double decimal = 0;
   double overs = 0;
   int count = 1;
-  late int innings;
+  int innings = 1;
   int totalovers = 0;
   String city = "";
   String ground = "";
@@ -78,4 +78,10 @@ class ScoreProvider with ChangeNotifier {
     count = 1;
     notifyListeners();
   }
+
+  void changeInnings (){
+    innings =2;
+    notifyListeners();
+  }
+
 }

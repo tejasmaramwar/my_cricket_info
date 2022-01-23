@@ -69,6 +69,7 @@ class _MatchScreenState extends State<MatchScreen> {
                     ],
                   ),
                   SizedBox(height: 20.0),
+                  Text('Current Ininngs : ${scoreprovider.innings}'),
                   // Row(
                   //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   //   children: [
@@ -94,8 +95,7 @@ class _MatchScreenState extends State<MatchScreen> {
                     ],
                   ),
                   SizedBox(height: 15.0),
-                  Text('Need 32 runs from 22 balls',
-                      style: TextStyle(fontSize: 15.0)),
+                  targetdisplay(scoreprovider, scoreproviderb),
                   Divider(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -179,7 +179,7 @@ class _MatchScreenState extends State<MatchScreen> {
                         score: '0',
                         color: Colors.black,
                         onpressed: () {
-                         balladder(scoreprovider, scoreproviderb, 1);
+                          runadder(scoreprovider, scoreproviderb, 0);
                         },
                       ),
                       ScoreButtons(
@@ -187,7 +187,7 @@ class _MatchScreenState extends State<MatchScreen> {
                         color: Colors.black,
                         onpressed: () {
                           runadder(scoreprovider, scoreproviderb, 1);
-                          balladder(scoreprovider, scoreproviderb, 1);
+
                         },
                       ),
                       ScoreButtons(
@@ -195,7 +195,6 @@ class _MatchScreenState extends State<MatchScreen> {
                         color: Colors.black,
                         onpressed: () {
                           runadder(scoreprovider, scoreproviderb, 2);
-                          balladder(scoreprovider, scoreproviderb, 1);
                         },
                       ),
                       ScoreButtons(
@@ -203,7 +202,6 @@ class _MatchScreenState extends State<MatchScreen> {
                         color: Colors.black,
                         onpressed: () {
                           runadder(scoreprovider, scoreproviderb, 3);
-                          balladder(scoreprovider, scoreproviderb, 1);
                         },
                       ),
                     ],
@@ -215,7 +213,6 @@ class _MatchScreenState extends State<MatchScreen> {
                         color: Colors.green,
                         onpressed: () {
                           runadder(scoreprovider, scoreproviderb, 4);
-                          balladder(scoreprovider, scoreproviderb, 1);
                         },
                       ),
                       ScoreButtons(
@@ -223,7 +220,6 @@ class _MatchScreenState extends State<MatchScreen> {
                         color: Colors.black,
                         onpressed: () {
                           runadder(scoreprovider, scoreproviderb, 5);
-                          balladder(scoreprovider, scoreproviderb, 1);
                         },
                       ),
                       ScoreButtons(
@@ -231,7 +227,6 @@ class _MatchScreenState extends State<MatchScreen> {
                         color: Colors.green,
                         onpressed: () {
                           runadder(scoreprovider, scoreproviderb, 6);
-                          balladder(scoreprovider, scoreproviderb, 1);
                         },
                       ),
                       ScoreButtons(
@@ -239,7 +234,6 @@ class _MatchScreenState extends State<MatchScreen> {
                         color: Colors.black,
                         onpressed: () {
                           runadder(scoreprovider, scoreproviderb, 7);
-                          balladder(scoreprovider, scoreproviderb, 1);
                         },
                       ),
                     ],
@@ -251,7 +245,6 @@ class _MatchScreenState extends State<MatchScreen> {
                         color: Colors.red,
                         onpressed: () {
                           wicketadder(scoreprovider, scoreproviderb, 1);
-                          balladder(scoreprovider, scoreproviderb, 1);
                         },
                       ),
                       ScoreButtons(
@@ -281,7 +274,6 @@ class _MatchScreenState extends State<MatchScreen> {
                         color: Colors.green,
                         onpressed: () {
                          runadder(scoreprovider, scoreproviderb, -1);
-                         balladder(scoreprovider, scoreproviderb, -1);
                           //What about how to undo Wickets?????????
                         },
                       ),
@@ -321,28 +313,57 @@ class ScoreButtons extends StatelessWidget {
   }
 }
 void runadder(ScoreProvider scoreprovider,ScoreProviderB scoreproviderb,int runs){
-  if(scoreprovider.isTeamAselected ==true && scoreprovider.playSelection==true){
-    scoreprovider.addRuns(runs);
-  }if(scoreprovider.isTeamAselected ==false && scoreprovider.playSelection==true){
-    scoreproviderb.addRuns(runs);
-  }if(scoreprovider.isTeamAselected==true && scoreprovider.playSelection==false){
-    scoreproviderb.addRuns(runs);
-  }if(scoreprovider.isTeamAselected==false&& scoreprovider.playSelection==false){
-    scoreprovider.addRuns(runs);
+  if(scoreprovider.integer >= scoreprovider.totalovers ){
   }
-}
+  else{
+
+    if(scoreproviderb.integerb>=scoreproviderb.totaloversb){
+    }
+    else{
+      if(scoreprovider.isTeamAselected ==true && scoreprovider.playSelection==true){
+        scoreprovider.addRuns(runs);
+        balladder(scoreprovider, scoreproviderb, 1);
+      }if(scoreprovider.isTeamAselected ==false && scoreprovider.playSelection==true){
+        scoreproviderb.addRuns(runs);
+        balladder(scoreprovider, scoreproviderb, 1);
+      }if(scoreprovider.isTeamAselected==true && scoreprovider.playSelection==false){
+        scoreproviderb.addRuns(runs);
+        balladder(scoreprovider, scoreproviderb, 1);
+      }if(scoreprovider.isTeamAselected==false&& scoreprovider.playSelection==false){
+        scoreprovider.addRuns(runs);
+        balladder(scoreprovider, scoreproviderb, 1);
+      }
+    }
+    }
+    }
+
 void wicketadder(ScoreProvider scoreprovider,ScoreProviderB scoreproviderb,int wickets){
-  if(scoreprovider.isTeamAselected ==true && scoreprovider.playSelection==true){
-    scoreprovider.addWicket(wickets);
-  }if(scoreprovider.isTeamAselected ==false && scoreprovider.playSelection==true){
-    scoreproviderb.addWicket(wickets);
-  }if(scoreprovider.isTeamAselected==true && scoreprovider.playSelection==false){
-    scoreproviderb.addWicket(wickets);
-  }if(scoreprovider.isTeamAselected==false&& scoreprovider.playSelection==false){
-    scoreprovider.addWicket(wickets);
+  if(scoreprovider.integer >= scoreprovider.totalovers ){
+    print('STOP1w');
+  }
+
+  else{
+    if(scoreproviderb.integerb==scoreproviderb.totaloversb){
+
+    }else{
+      if(scoreprovider.isTeamAselected ==true && scoreprovider.playSelection==true){
+        scoreprovider.addWicket(wickets);
+        balladder(scoreprovider, scoreproviderb, 1);
+      }if(scoreprovider.isTeamAselected ==false && scoreprovider.playSelection==true){
+        scoreproviderb.addWicket(wickets);
+        balladder(scoreprovider, scoreproviderb, 1);
+      }if(scoreprovider.isTeamAselected==true && scoreprovider.playSelection==false){
+        scoreproviderb.addWicket(wickets);
+        balladder(scoreprovider, scoreproviderb, 1);
+      }if(scoreprovider.isTeamAselected==false&& scoreprovider.playSelection==false){
+        scoreprovider.addWicket(wickets);
+        balladder(scoreprovider, scoreproviderb, 1);
+      }
+    }
   }
 }
 void balladder(ScoreProvider scoreprovider,ScoreProviderB scoreproviderb,int balls){
+
   if(scoreprovider.isTeamAselected ==true && scoreprovider.playSelection==true){
     scoreprovider.addBalls(balls);
   }if(scoreprovider.isTeamAselected ==false && scoreprovider.playSelection==true){
@@ -352,5 +373,14 @@ void balladder(ScoreProvider scoreprovider,ScoreProviderB scoreproviderb,int bal
   }if(scoreprovider.isTeamAselected==false&& scoreprovider.playSelection==false){
     scoreprovider.addBalls(balls);
   }
+
 }
+Text targetdisplay(ScoreProvider scoreprovider,ScoreProviderB scoreproviderb){
+  if(scoreprovider.innings==2){
+    return Text('Need 32 runs from 22 balls');
+  }else{
+    return Text('');
+  }
+}
+
 

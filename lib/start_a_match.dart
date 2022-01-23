@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_cricket_info/toss_screen.dart';
 import 'provider_class.dart';
 import 'package:provider/provider.dart';
+import 'teamB_providerclass.dart';
 
 class StartAMatch extends StatefulWidget {
   const StartAMatch({Key? key}) : super(key: key);
@@ -24,6 +25,7 @@ class _StartAMatchState extends State<StartAMatch> {
   @override
   Widget build(BuildContext context) {
     final scoreprovider = context.watch<ScoreProvider>();
+    final scoreproviderb = context.watch<ScoreProviderB>();
 
     return Scaffold(
       appBar: AppBar(
@@ -61,7 +63,11 @@ class _StartAMatchState extends State<StartAMatch> {
                       ),
                     ],
                   ),
-                  TextField(onChanged: (value){scoreprovider.totalover(int.parse(value));},
+                  TextField(
+                    onChanged: (value) {
+                      scoreprovider.totalover(int.parse(value));
+                      scoreproviderb.totalover(int.parse(value));
+                    },
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       border: UnderlineInputBorder(),
@@ -75,19 +81,28 @@ class _StartAMatchState extends State<StartAMatch> {
                       labelText: 'Overs per bowler',
                     ),
                   ),
-                  TextField(onChanged: (value){scoreprovider.City(value);},
+                  TextField(
+                    onChanged: (value) {
+                      scoreprovider.City(value);
+                    },
                     decoration: InputDecoration(
                       border: UnderlineInputBorder(),
                       labelText: 'City / Town',
                     ),
                   ),
-                  TextField(onChanged: (value){scoreprovider.Ground(value);},
+                  TextField(
+                    onChanged: (value) {
+                      scoreprovider.Ground(value);
+                    },
                     decoration: InputDecoration(
                       border: UnderlineInputBorder(),
                       labelText: 'Ground',
                     ),
                   ),
-                  TextField(onChanged: (value){scoreprovider.Datetime(value);},
+                  TextField(
+                    onChanged: (value) {
+                      scoreprovider.Datetime(value);
+                    },
                     keyboardType: TextInputType.datetime,
                     decoration: InputDecoration(
                       border: UnderlineInputBorder(),

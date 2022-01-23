@@ -9,6 +9,7 @@ class ScoreProviderB with ChangeNotifier {
   int countb = 1;
   late int innings;
   bool playSelectionb = true;
+  int totaloversb = 0;
 
   void addRuns(int run) {
     scoreb = scoreb + run;
@@ -57,5 +58,8 @@ class ScoreProviderB with ChangeNotifier {
     oversb = 0;
     countb = 1;
     notifyListeners();
+  }
+  void totalover(int over) {
+    totaloversb = over;
   }
 }

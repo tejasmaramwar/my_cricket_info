@@ -49,4 +49,13 @@ class ScoreProviderB with ChangeNotifier {
       oversb = integerb + decimalb;
     }
   }
+  void reset() {
+    scoreb = 0;
+    wicketsb = 0;
+    integerb = 0;
+    decimalb = 0;
+    oversb = 0;
+    countb = 1;
+    notifyListeners();
+  }
 }

@@ -9,13 +9,12 @@ class ScoreProvider with ChangeNotifier {
   double overs = 0;
   int count = 1;
   late int innings;
-  int totalovers=0;
-  String city="";
-  String ground="";
-  String datetime="";
+  int totalovers = 0;
+  String city = "";
+  String ground = "";
+  String datetime = "";
   bool isTeamAselected = true;
   bool playSelection = true;
-
 
   void addRuns(int run) {
     score = score + run;
@@ -43,24 +42,40 @@ class ScoreProvider with ChangeNotifier {
 
     notifyListeners();
   }
-  void totalover(int over){
-    totalovers=over;
+
+  void totalover(int over) {
+    totalovers = over;
   }
-  void City(String City){
+
+  void City(String City) {
     city = City;
   }
-  void Ground(String Ground){
+
+  void Ground(String Ground) {
     ground = Ground;
   }
-  void Datetime(String Datetime){
+
+  void Datetime(String Datetime) {
     datetime = Datetime;
   }
-  void SelectedTeam(){
+
+  void SelectedTeam() {
     isTeamAselected = !isTeamAselected;
     notifyListeners();
   }
-  void playSelecting(){
+
+  void playSelecting() {
     playSelection = !playSelection;
+    notifyListeners();
+  }
+
+  void reset() {
+    score = 0;
+    wickets = 0;
+    integer = 0;
+    decimal = 0;
+    overs = 0;
+    count = 1;
     notifyListeners();
   }
 }

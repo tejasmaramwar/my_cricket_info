@@ -269,11 +269,11 @@ class _MatchScreenState extends State<MatchScreen> {
                         },
                       ),
                       ScoreButtons(
-                        score: 'LB',
-                        color: Colors.black,
+                        score: 'Reset',
+                        color: Colors.red,
                         onpressed: () {
-                          wicketadder(scoreprovider, scoreproviderb, 1);
-                          balladder(scoreprovider, scoreproviderb, 1);
+                          scoreprovider.reset();
+                          scoreproviderb.reset();
                         },
                       ),
                       ScoreButtons(
@@ -313,7 +313,7 @@ class ScoreButtons extends StatelessWidget {
           score,
           style: TextStyle(
             color: color,
-            fontSize: 16.6,
+            fontSize: 15.1,
           ),
         ),
       ),
